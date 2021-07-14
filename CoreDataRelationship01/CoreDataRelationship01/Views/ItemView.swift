@@ -25,18 +25,41 @@ struct ItemView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(items) { item in
-                HStack {
-                    Text(item.name ?? "")
-                    Spacer()
-                    Text(item.toCategory?.name ?? "Unknow")
+//        List {
+//            ForEach(items) { item in
+//                HStack {
+//                    Text(item.name ?? "")
+//                    Spacer()
+//                    Text(item.toCategory?.name ?? "Unknow")
+//                }
+//
+//            }
+//            .onDelete { indexSet in
+//                itemVM.delete(indexSet: indexSet, items: items)
+//            }
+//        }
+        
+        VStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: [GridItem(.adaptive(minimum: 200))]) {
+                    ForEach(items) { item in
+                        RoundedRectangle(cornerRadius: 15)
+                                                   .fill(Color.blue)
+                                                   .frame(width: 200, height: 200)
+                                                   .padding(.horizontal, 5)
+                                                   .overlay(
+                                                    Text(item.name ?? "")
+                                                           .foregroundColor(.white)
+                                                           .font(.title)
+                                                           .fontWeight(.bold)
+                                                   )
+                            .shadow(color: Color.gray.opacity(0.3), radius: 15, x: 0, y: 10.0)
+                            .padding()
+                    }
                 }
             }
-            .onDelete { indexSet in
-                itemVM.delete(indexSet: indexSet, items: items)
-            }
         }
+    
         .navigationBarTitle(Text("\(category?.name ?? "") >> Item"))
         
         .navigationBarItems(trailing: Button(action: {
