@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 class ItemViewModel: ObservableObject {
     
     let viewContext = PersistentController.shared.viewContect
+    
+    @Published var selectedObjectId: NSManagedObjectID?
     
     func save() {
         do{

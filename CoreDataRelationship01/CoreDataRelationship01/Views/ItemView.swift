@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ItemView: View {
     
@@ -43,19 +44,25 @@ struct ItemView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [GridItem(.adaptive(minimum: 200))]) {
                     ForEach(items) { item in
-                        RoundedRectangle(cornerRadius: 15)
-                                                   .fill(Color.blue)
-                                                   .frame(width: 200, height: 200)
-                                                   .padding(.horizontal, 5)
-                                                   .overlay(
-                                                    Text(item.name ?? "")
-                                                           .foregroundColor(.white)
-                                                           .font(.title)
-                                                           .fontWeight(.bold)
-                                                   )
-                            .shadow(color: Color.gray.opacity(0.3), radius: 15, x: 0, y: 10.0)
-                            .padding()
+
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(Color.blue)
+                                .frame(width: 200, height: 200)
+                                .padding(.horizontal, 5)
+                                .overlay(
+                                    Text(item.name ?? "")
+                                        .foregroundColor(itemVM.selectedObjectId  == item.objectID  ? .red : .white)
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                )
+                                .shadow(color: Color.gray.opacity(itemVM.selectedObjectId == item.objectID  ? 0.5 : 0.0), radius: 15, x: 0, y: 10.0)
+                                .padding()
+                                .onTapGesture {
+                                    self.itemVM.selectedObjectId  = item.objectID
+                                }
+
                     }
+                    
                 }
             }
         }
@@ -69,9 +76,3 @@ struct ItemView: View {
         }))
     }
 }
-
-//struct ItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemView(category: FetchedResults<Category>.Element())
-//    }
-//}
