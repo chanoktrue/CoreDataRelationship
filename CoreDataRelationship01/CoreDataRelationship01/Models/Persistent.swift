@@ -13,15 +13,26 @@ class PersistentController {
     
     let container: NSPersistentContainer
     let viewContect: NSManagedObjectContext
-    
+
     init() {
-        container = NSPersistentContainer(name: "CoreDataModel")
+        // CoreData
+//        container = NSPersistentContainer(name: "CoreDataModel")
+        
+        // Cloudkit
+        container = NSPersistentCloudKitContainer(name: "CoreDataModel")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Unable load coredate with error: \(error.localizedDescription)")
             }
         }
         viewContect = container.viewContext
+        
+        // Cloudkit
+        viewContect.automaticallyMergesChangesFromParent = true
+        viewContect.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
+    
+    
+
     
 }

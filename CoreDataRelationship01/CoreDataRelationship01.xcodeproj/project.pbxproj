@@ -17,6 +17,7 @@
 		CD0CA48A269ECF0A005BB62F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA489269ECF0A005BB62F /* ItemView.swift */; };
 		CD0CA48C269ECFB5005BB62F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA48B269ECFB5005BB62F /* CategoryViewModel.swift */; };
 		CD0CA48E269ECFC2005BB62F /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0CA48D269ECFC2005BB62F /* ItemViewModel.swift */; };
+		CD0CA492269EF15B005BB62F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0CA491269EF15B005BB62F /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		CD0CA489269ECF0A005BB62F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		CD0CA48B269ECFB5005BB62F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		CD0CA48D269ECFC2005BB62F /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		CD0CA48F269EF153005BB62F /* CoreDataRelationship01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreDataRelationship01.entitlements; sourceTree = "<group>"; };
+		CD0CA491269EF15B005BB62F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0CA492269EF15B005BB62F /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +54,7 @@
 			children = (
 				CD0CA462269E724E005BB62F /* CoreDataRelationship01 */,
 				CD0CA461269E724E005BB62F /* Products */,
+				CD0CA490269EF15B005BB62F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +69,7 @@
 		CD0CA462269E724E005BB62F /* CoreDataRelationship01 */ = {
 			isa = PBXGroup;
 			children = (
+				CD0CA48F269EF153005BB62F /* CoreDataRelationship01.entitlements */,
 				CD0CA463269E724E005BB62F /* CoreDataRelationship01App.swift */,
 				CD0CA474269E726C005BB62F /* Views */,
 				CD0CA473269E7265005BB62F /* ViewModels */,
@@ -109,6 +115,14 @@
 				CD0CA489269ECF0A005BB62F /* ItemView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD0CA490269EF15B005BB62F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0CA491269EF15B005BB62F /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreDataRelationship01/CoreDataRelationship01.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreDataRelationship01/Preview Content\"";
 				DEVELOPMENT_TEAM = 693P93E2N6;
@@ -337,6 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreDataRelationship01/CoreDataRelationship01.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreDataRelationship01/Preview Content\"";
 				DEVELOPMENT_TEAM = 693P93E2N6;
